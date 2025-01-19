@@ -34,7 +34,7 @@ docker-compose version 1.26.0, build 8a1c60f6
 
 ![Docker2-установка 5 рез](https://github.com/keebertron/Docker2-Kravchenko-V.A./blob/main/Docker2-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%205%20%D1%80%D0%B5%D0%B7.png)
 
-![Docker2-установка 6 стоп]([ttps://github.com/keebertron/Docker2-Kravchenko-V.A./blob/main/Docker2-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%206%20%D1%81%D1%82%D0%BE%D0%BF.png)
+![Docker2-установка 6 стоп](https://github.com/keebertron/Docker2-Kravchenko-V.A./blob/main/Docker2-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%206%20%D1%81%D1%82%D0%BE%D0%BF.png)
 
 
 ---
