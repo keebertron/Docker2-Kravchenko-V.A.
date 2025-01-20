@@ -10,7 +10,6 @@
 
 
 ```
-
 ![Docker2-ДЗ 1-1](https://github.com/keebertron/Docker2-Kravchenko-V.A./blob/main/Docker2-%D0%94%D0%97%201-1.png)
 
 ---
