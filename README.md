@@ -22,12 +22,27 @@ services;
 volumes;
 networks.
 При выполнении задания используйте подсеть 10.5.0.0/16. Ваша подсеть должна называться: <ваши фамилия и инициалы>-my-netology-hw. Все приложения из последующих заданий должны находиться в этой конфигурации.
+### Решение 2
 
 
 
 ```
 Поле для вставки кода...
-....
+version: '3'
+
+services:
+  netology-app
+
+volumes:
+  netology-lesson:
+    6-04_docker2
+
+networks:
+  kravchenko_va-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
 ....
 ....
 ....
