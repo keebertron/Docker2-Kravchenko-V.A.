@@ -76,15 +76,15 @@ rule_files:
   # - "first_rules.yml"
   # - "second_rules.yml"
 
-# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
+ A scrape configuration containing exactly one endpoint to scrape:
+ Here it's Prometheus itself.
 scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  # - job_name: "Kravchenko_VA-netology-prometheus"
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-  #   static_configs:
-  #     - targets: ["10.5.0.0:9090"]
+   The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+   - job_name: "Kravchenko_VA-netology-prometheus"
+     metrics_path defaults to '/metrics'
+     scheme defaults to 'http'.
+     static_configs:
+       - targets: ["10.5.0.0:9090"]
 
   #- job_name: 'pushgateway'
   #  honor_labels: true
