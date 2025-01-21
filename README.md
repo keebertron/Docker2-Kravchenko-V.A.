@@ -41,6 +41,7 @@ networks:
     ipam:
       config:
         - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
 ```
 
 ### Задание 3
