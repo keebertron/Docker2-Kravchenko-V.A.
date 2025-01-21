@@ -80,16 +80,16 @@ rule_files:
 # Here it's Prometheus itself.
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  # - job_name: "docker-server"
+  # - job_name: "Kravchenko_VA-netology-prometheus"
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
   #   static_configs:
   #     - targets: ["10.5.0.0:9090"]
 
-  - job_name: 'pushgateway'
-    honor_labels: true
-    static_configs:
-      - targets: ["pushgateway:9091"]
+  #- job_name: 'pushgateway'
+  #  honor_labels: true
+  #  static_configs:
+  #    - targets: ["pushgateway:9091"]
 
 ```
 ![Скриншот 1 к заданию 3](https://github.com/keebertron/Docker2-Kravchenko-V.A./blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%201%20%D0%BA%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D1%8E%203.png)
