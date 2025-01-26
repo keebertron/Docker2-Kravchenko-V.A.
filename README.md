@@ -62,7 +62,7 @@ version: '3'
 services:
   prometheus:
     image: prom/prometheus:v2.47.2
-    container_name: Kravchenko_VA-netology-prometheus
+    container_name: kravchenko_va-netology-prometheus
     command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
@@ -89,20 +89,42 @@ volumes:
 
 
 ```
-
 version: '3'
-
 services:
+  prometheus:
+    image: prom/prometheus:v2.47.2
+    container_name: kravchenko_va-netology-prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - monitoring-stack
+    restart: always
+
   pushgateway:
     image: prom/pushgateway:v1.6.2
-    container_name:kravchenko_va-netology-prometheus
+    container_name: kravchenko_va-netology-pushgateway
     ports:
       - 9091:9091
     networks:
-      - monitoring-stack
+      - kravchenko_va-my-netology-hw
     depends_on:
       - prometheus
     restart: unless-stopped
+
+volumes:
+  prometheus-data:
+
+networks:
+  kravchenko_va-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
 
 ```
 
