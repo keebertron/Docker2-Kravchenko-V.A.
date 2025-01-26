@@ -57,7 +57,7 @@ networks:
 ### Решение 3
 
 ```
-Поле для вставки кода...
+
 version: '3'
 services:
   prometheus:
