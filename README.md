@@ -58,38 +58,22 @@ networks:
 
 ```
 Поле для вставки кода...
-# my global config
-global:
-  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
-  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
-  # scrape_timeout is set to the global default (10s).
-
-# Alertmanager configuration
-alerting:
-  alertmanagers:
-    - static_configs:
-        - targets:
-            # - alertmanager:9093
-
-# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
-rule_files:
-  # - "first_rules.yml"
-  # - "second_rules.yml"
-
-# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
-scrape_configs:
-   The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-   - job_name: "Kravchenko_VA-netology-prometheus"
-     metrics_path defaults to '/metrics'
-     scheme defaults to 'http'.
-     static_configs:
-       - targets: ["10.5.0.0:9090"]
-
-#  - job_name: 'pushgateway'
-#    honor_labels: true
-#    static_configs:
-#      - targets: ["pushgateway:9091"]
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus:v2.47.2
+    container_name: Kravchenko_VA-netology-prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - monitoring-stack
+    restart: always
+volumes:
+  prometheus-data:
 
 ```
 
