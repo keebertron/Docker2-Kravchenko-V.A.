@@ -200,7 +200,7 @@ networks:
 ```
 [security]
 
-admin_user = BobkovEO
+admin_user = kravchenko_va
 admin_password = netology
 
 ```
