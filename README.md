@@ -147,7 +147,7 @@ version: '3'
 services:
   prometheus:
     image: prom/prometheus:v2.47.2
-    container_name: kravchenko_va-netology-prometheus
+    container_name: kravchenko-va-netology-prometheus
     command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
@@ -155,23 +155,23 @@ services:
       - ./prometheus:/etc/prometheus
       - prometheus-data:/prometheus
     networks:
-      - kravchenko_va-netology-hw
+      - kravchenko-va-netology-hw
     restart: always
 
   pushgateway:
     image: prom/pushgateway:v1.6.2
-    container_name: kravchenko_va-netology-pushgateway
+    container_name: kravchenko-va-netology-pushgateway
     ports:
       - 9091:9091
     networks:
-      - kravchenko_va-netology-hw
+      - kravchenko-va-netology-hw
     depends_on:
       - prometheus
     restart: unless-stopped
 
   grafana:
     image: grafana/grafana\
-    container_name: kravchenko_va-netology-grafana
+    container_name: kravchenko-va-netology-grafana
     environment:
       GF_PATHS_CONFIG: /etc/grafana/custom.ini
     ports:
@@ -180,7 +180,7 @@ services:
       - ./grafana:/etc/grafana
       - grafana-data:/var/lib/grafana
     networks:
-      - kravchenko_va-my-netology-hw
+      - kravchenko-va-my-netology-hw
     depends_on:
       - prometheus
     restart: unless-stopped
@@ -190,7 +190,7 @@ volumes:
   grafana-data:
 
 networks:
-  kravchenko_va-my-netology-hw:
+  kravchenko-va-my-netology-hw:
     driver: bridge
     ipam:
       config:
@@ -202,7 +202,7 @@ Custom.ini
 ```
 [security]
 
-admin_user = kravchenko_va
+admin_user = kravchenko-va
 admin_password = netology
 
 ```
