@@ -70,8 +70,9 @@ services:
       - ./prometheus:/etc/prometheus
       - prometheus-data:/prometheus
     networks:
-      - monitoring-stack
+      - kravchenko_va-my-netology-hw
     restart: always
+
 volumes:
   prometheus-data:
 
@@ -90,6 +91,7 @@ volumes:
 
 ```
 version: '3'
+
 services:
   prometheus:
     image: prom/prometheus:v2.47.2
@@ -101,7 +103,7 @@ services:
       - ./prometheus:/etc/prometheus
       - prometheus-data:/prometheus
     networks:
-      - monitoring-stack
+      - kravchenko_va-my-netology-hw
     restart: always
 
   pushgateway:
@@ -153,7 +155,7 @@ services:
       - ./prometheus:/etc/prometheus
       - prometheus-data:/prometheus
     networks:
-      - kravchenko_va-my-netology-hw
+      - kravchenko_va-netology-hw
     restart: always
 
   pushgateway:
@@ -162,26 +164,26 @@ services:
     ports:
       - 9091:9091
     networks:
-      - kravchenko_va-my-netology-hw
+      - kravchenko_va-netology-hw
     depends_on:
       - prometheus
     restart: unless-stopped
 
   grafana:
-    image: grafana/grafana
-      container_name: kravchenko_va-netology-grafana
-      environment:
-        GF_PATHS_CONFIG: /etc/grafana/custom.ini
-      ports:
-        - 80:3000
-      volumes:
-        - ./grafana:/etc/grafana
-        - grafana-data:/var/lib/grafana
-      networks:
-        - kravchenko_va-my-netology-hw
-      depends_on:
-        - prometheus
-      restart: unless-stopped
+    image: grafana/grafana\
+    container_name: kravchenko_va-netology-grafana
+    environment:
+      GF_PATHS_CONFIG: /etc/grafana/custom.ini
+    ports:
+      - 80:3000
+    volumes:
+      - ./grafana:/etc/grafana
+      - grafana-data:/var/lib/grafana
+    networks:
+      - kravchenko_va-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
 
 volumes:
   prometheus-data:
