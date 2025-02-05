@@ -170,7 +170,7 @@ services:
     restart: unless-stopped
 
   grafana:
-    image: grafana/grafana\
+    image: grafana/grafana
     container_name: kravchenko-va-netology-grafana
     environment:
       GF_PATHS_CONFIG: /etc/grafana/custom.ini
@@ -218,3 +218,21 @@ admin_password = netology
 ### Решение 6
 
 ![Скриншот к заданию 6](https://github.com/keebertron/Docker2-Kravchenko-V.A./blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%20%D0%BA%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D1%8E%206.png)
+
+ ### Задание 7
+ Выполните действия.
+
+1. Выполните запрос в Pushgateway для помещения метрики <ваши фамилия и инициалы> со значением 5 в Prometheus: echo "<ваши фамилия и инициалы> 5" | curl --data-binary @- http://localhost:9091/metrics/job/netology.
+Залогиньтесь в Grafana с помощью логина и пароля из предыдущего задания.
+2. Cоздайте Data Source Prometheus (Home -> Connections -> Data sources -> Add data source -> Prometheus -> указать "Prometheus server URL = http://prometheus:9090" -> Save & Test).
+3. Создайте график на основе добавленной в пункте 5 метрики (Build a dashboard -> Add visualization -> Prometheus -> Select metric -> Metric explorer -> <ваши фамилия и инициалы -> Apply.
+В качестве решения приложите:
+
+docker-compose.yml целиком;
+скриншот команды docker ps после запуске docker-compose.yml;
+скриншот графика, постоенного на основе вашей метрики.
+
+### Решение 7
+
+![Скриншот](ссылка)
+
