@@ -129,7 +129,7 @@ networks:
           gateway: 10.5.0.1
 
 ```
-![Скриншот к заданию 4](https://github.com/keebertron/Docker2-Kravchenko-V.A./blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D1%88%D0%BE%D1%82%20%D0%BA%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D1%8E%204.png)
+![Скриншот к заданию 4](https://github.com/keebertron/Docker2-Kravchenko-V.A./blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%20%D0%BA%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D1%8E%204.png)
 
 ### Задание 5
 
@@ -142,20 +142,18 @@ networks:
  
 ### Решение 5
 ```
-version: '3'
-
 services:
   prometheus:
     image: prom/prometheus:v2.47.2
     container_name: kravchenko-va-netology-prometheus
     command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
-    ports:
+    ports: 
       - 9090:9090
     volumes:
       - ./prometheus:/etc/prometheus
       - prometheus-data:/prometheus
     networks:
-      - kravchenko-va-netology-hw
+      - kravchenko-va-my-netology-hw
     restart: always
 
   pushgateway:
@@ -164,7 +162,7 @@ services:
     ports:
       - 9091:9091
     networks:
-      - kravchenko-va-netology-hw
+      - kravchenko-va-my-netology-hw
     depends_on:
       - prometheus
     restart: unless-stopped
@@ -184,11 +182,11 @@ services:
     depends_on:
       - prometheus
     restart: unless-stopped
-
+ 
 volumes:
   prometheus-data:
   grafana-data:
-
+  
 networks:
   kravchenko-va-my-netology-hw:
     driver: bridge
