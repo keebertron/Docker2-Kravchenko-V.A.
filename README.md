@@ -62,7 +62,7 @@ version: '3'
 services:
   prometheus:
     image: prom/prometheus:v2.47.2
-    container_name: KravchenkoVA-netology-prometheus
+    container_name: KravchenkoVA-prometheus
     command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
@@ -95,7 +95,7 @@ version: '3'
 services:
   prometheus:
     image: prom/prometheus:v2.47.2
-    container_name: KravchenkoVA-netology-prometheus
+    container_name: KravchenkoVA-prometheus
     command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
@@ -108,7 +108,7 @@ services:
 
   pushgateway:
     image: prom/pushgateway:v1.6.2
-    container_name: KravchenkoVA-netology-pushgateway
+    container_name: KravchenkoVA-pushgateway
     ports:
       - 9091:9091
     networks:
@@ -145,7 +145,7 @@ networks:
 services:
   prometheus:
     image: prom/prometheus:v2.47.2
-    container_name: KravchenkoVA-netology-prometheus
+    container_name: KravchenkoVA-prometheus
     command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
     ports: 
       - 9090:9090
@@ -158,7 +158,7 @@ services:
 
   pushgateway:
     image: prom/pushgateway:v1.6.2
-    container_name: KravchenkoVA-netology-pushgateway
+    container_name: KravchenkoVA-pushgateway
     ports:
       - 9091:9091
     networks:
@@ -169,7 +169,7 @@ services:
 
   grafana:
     image: grafana/grafana
-    container_name: KravchenkoVA-netology-grafana
+    container_name: KravchenkoVA-grafana
     environment:
       GF_PATHS_CONFIG: /etc/grafana/custom.ini
     ports:
