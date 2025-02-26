@@ -248,5 +248,6 @@ docker-compose.yml целиком;
 ```
 echo "KravchenkoVA 5" | curl --data-binary @- http://localhost:9091/metrics/job/netology
 ```
-![Скриншот 2 к заданию 7]([ссылка](https://github.com/keebertron/Docker2-Kravchenko-V.A./blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%201%20%D0%BA%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D1%8E%207.png))
+![Скриншот 1 к заданию 7](https://github.com/keebertron/Docker2-Kravchenko-V.A./blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%201%20%D0%BA%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D1%8E%207.png)
 
+![Скриншот 2 к заданию 7](https://github.com/keebertron/Docker2-Kravchenko-V.A./blob/main/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%201%20%D0%BA%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D1%8E%207.png)
