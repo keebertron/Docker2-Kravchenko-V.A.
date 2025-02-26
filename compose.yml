@@ -1,0 +1,77 @@
+services:
+
+  prometheus:
+    image: prom/prometheus:v2.47.2
+    volumes:
+      - ./prometheus:/etc/prometheus/
+    container_name: KravchenkoVA-netology-prometheus
+    hostname: prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    restart: unless-stopped
+    environment:
+      TZ: "Europe/Moscow"
+    networks:
+      - KravchenkoVA-my-netology-hw
+
+  node-exporter:
+    image: prom/node-exporter
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    container_name: KravchenkoVA-netology-node-exporter
+    hostname: exporter
+    command:
+      - --path.procfs=/host/proc
+      - --path.sysfs=/host/sys
+      - --collector.filesystem.ignored-mount-points
+      - ^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)
+    ports:
+      - 9100:9100
+    restart: unless-stopped
+    environment:
+      TZ: "Europe/Moscow"
+    networks:
+      - KravchenkoVA-my-netology-hw
+
+  pushgateway:
+    image: prom/pushgateway:v1.6.2
+    container_name: Kravchenko-VA-netology-pushgateway
+    ports:
+      - 9091:9091
+    networks:
+      - KravchenkoVA-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana
+    container_name: KravchenkoVA-netology-grafana
+    hostname: grafana
+    environment:
+      GF_PATHS_CONFIG: /etc/grafana/custom.ini
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/etc/grafana
+      - grafana-data:/var/lib/grafana
+    networks:
+      - KravchenkoVA-my-netology-hw
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  prometheus-data:
+  grafana-data:
+
+networks:
+  KravchenkoVA-my-netology-hw:
+      driver: bridge
+      ipam:
+        config:
+          - subnet: 10.5.0.0/16
